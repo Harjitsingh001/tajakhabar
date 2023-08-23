@@ -1,5 +1,5 @@
-const API_KEY = "025e1ede8d0a43a791000954505c9b6d";
-const url = "https://newsapi.org/v2/everything?q=";
+// const API_KEY = "025e1ede8d0a43a791000954505c9b6d";
+// const url = "https://newsapi.org/v2/everything?q=";
 
 window.addEventListener("load", () => fetchNews("India"));
 
@@ -8,7 +8,7 @@ function reload() {
 }
 
 async function fetchNews(query) {
-    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
+    const res = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=025e1ede8d0a43a791000954505c9b6d`);
     const data = await res.json();
     bindData(data.articles);
 }
