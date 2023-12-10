@@ -7,11 +7,29 @@ function reload() {
     window.location.reload();
 }
 
+// async function fetchNews(query) {
+//     const res = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=025e1ede8d0a43a791000954505c9b6d`);
+//     const data = await res.json();
+//     bindData(data.articles);
+// }
+
+
 async function fetchNews(query) {
-    const res = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=025e1ede8d0a43a791000954505c9b6d`);
-    const data = await res.json();
-    bindData(data.articles);
+    try {
+        const res = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=025e1ede8d0a43a791000954505c9b6d`);
+        
+        if (!res.ok) {
+            throw new Error(`Failed to fetch news. Status: ${res.status}`);
+        }
+
+        const data = await res.json();
+        bindData(data.articles);
+    } catch (error) {
+        console.error("Error fetching news:", error);
+        // Handle the error, e.g., display a message to the user
+    }
 }
+
 
 function bindData(articles) {
     const cardsContainer = document.getElementById("cards-container");

@@ -8,7 +8,7 @@
 
 :root {
     --primary-text-color: #183b56;
-    --secondary-text-color: #577592;
+    --secondary-text-color: #184c7c;
     --accent-color: #2294ed;
     --accent-color-dark: #1d69a3;
 }
@@ -44,7 +44,7 @@ ul {
 }
 
 nav {
-    background-color: #f3faff;
+    background-color: #90bdd3;
     box-shadow: 0 0 4px #bbd0e2;
     position: fixed;
     top: 0;
@@ -77,7 +77,7 @@ nav {
 }
 
 .hover-link:active {
-    color: red;
+    color: rgb(159, 160, 53);
 }
 
 .nav-item.active {
