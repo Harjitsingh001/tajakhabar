@@ -216,9 +216,6 @@
         </div>
     </template>
     <script>
-        // const API_KEY = "025e1ede8d0a43a791000954505c9b6d";
-        // const url = "https://newsapi.org/v2/everything?q=";
-
         window.addEventListener("load", () => fetchNews("India"));
 
         function reload() {
@@ -232,9 +229,11 @@
         // }
 
 
+
         async function fetchNews(query) {
+            var myUrl = `https://newsapi.org/v2/everything?q=${query}&apiKey=025e1ede8d0a43a791000954505c9b6d`;
             try {
-                const res = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=025e1ede8d0a43a791000954505c9b6d`);
+                const res = await fetch(myUrl);
 
                 if (!res.ok) {
                     throw new Error(`Failed to fetch news. Status: ${res.status}`);
