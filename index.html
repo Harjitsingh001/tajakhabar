@@ -234,7 +234,8 @@
 
         async function fetchNews(query) {
             try {
-                const res = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=025e1ede8d0a43a791000954505c9b6d`);
+                const apiKey = process.env.NEWS_API_KEY; // Use the environment variable
+                const res = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`);
 
                 if (!res.ok) {
                     throw new Error(`Failed to fetch news. Status: ${res.status}`);
